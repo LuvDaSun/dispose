@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '6'
+deploy:
+  provider: npm
+  email: elmerbulthuis@gmail.com
+  api_key:
+    secure: F3TOm63Qe77rypdo7hW0/NdD72YPd9evJg0nIU/s3KXGvyZky+VJqtA4hlayFAGxOw/veN1BCxJSkzU/Tf3Z1dR10BOZPQse5DviJ9SG6FEHb46/ZbKfY1AXDz6ks6xIbhWiehwrXWAOlum3U64wfo5rFQvAoGKZ+HLeepyXgJSTBgFv50m3mxF4huyvyK1k8vXWSKbmzMSCS/yCDuqFvMCysdH/ftaD4Yis/y5pzd+oz7AfliJyqqSmkCxTyA0LcmfuJVJJNG6olMtKrDc02YCtynEzddJaqbMqibBX1nRj3/YGE2kyMU4hwmtfzBaueIi53CnChgYtupmums6OP3EBWW1YCTdsS7o3C+rSt2oJGsBuupLt+5TKaQc9sJXjB5wgibXBTudJ8htuaR1KOa9xZ1IDLucwyqPww6xSogNnzDuOHW1tu+xfGtFvf/F3Xjk7s3iceF9hxd6H9555zKaRIVNunDueQG0ZPAGgV6G3pzft7xbzDg4ji7eOd7+NBktdeAPIgDouyXA3PQ+2zu2zukGY3IpOrgiDFCPewtQBlbkmDoABQT6QBIYDzN9KwxW3iDhDQxrEKcJkI/I3IkijwYUY4pNus0m9e6NWU7BJF27JDkQTaBq4KBwie8AE+vEdjdNrPWEI5545Ig1OrKtrqlBnEjYYJw/r09SO7vg=
+  on:
+    tags: true
+    repo: LuvDaSun/using-disposable

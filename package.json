@@ -1,0 +1,40 @@
+{
+  "name": "using-disposable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "types": "bin/index.d.ts",
+  "scripts": {
+    "test": "npm run lint & npm run spec-all",
+    "compile": "tsc",
+    "lint": "tslint 'src/**.ts'",
+    "spec": "tape --require 'ts-node/register'",
+    "spec-all": "npm run spec 'src/**/*.spec.ts'",
+    "coverage": "nyc --reporter text-summary --reporter lcov --include 'src/**/*.ts' --exclude 'src/**/*.spec.ts' --extension '.ts' npm run spec-all",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuvDaSun/using-disposable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuvDaSun/using-disposable/issues"
+  },
+  "homepage": "https://github.com/LuvDaSun/using-disposable#readme",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.45",
+    "@types/sinon": "^2.2.2",
+    "@types/tape": "^4.2.30",
+    "nyc": "^10.3.2",
+    "sinon": "^2.2.0",
+    "tape": "^4.6.3",
+    "ts-node": "^3.0.4",
+    "tslint": "^5.2.0",
+    "typescript": "^2.3.2"
+  }
+}
