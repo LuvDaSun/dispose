@@ -4,6 +4,8 @@ export interface Disposable {
     dispose: Disposer;
 }
 
-export function isDisposable(maybeDisposable: any): maybeDisposable is Disposable {
+export function isDisposable(
+    maybeDisposable: any,
+): maybeDisposable is Disposable {
     return typeof maybeDisposable.dispose === "function";
 }
