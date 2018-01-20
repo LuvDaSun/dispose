@@ -18,11 +18,13 @@ export class DisposableComposition implements Disposable {
         await Promise.all(disposables.map(disposable => disposable.dispose()));
     }
 
-    protected registerDisposable(disposable: Disposable) {
-        this.disposables.add(disposable);
+    protected registerDisposable(...disposables: Disposable[]) {
+        for (const disposable of disposables)
+            this.disposables.add(disposable);
     }
-    protected deregisterDisposable(disposable: Disposable) {
-        this.disposables.delete(disposable);
+    protected deregisterDisposable(...disposables: Disposable[]) {
+        for (const disposable of disposables)
+            this.disposables.delete(disposable);
     }
 
 }
