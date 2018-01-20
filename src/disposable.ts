@@ -1,5 +1,5 @@
+export type Disposer = (() => void) | (() => PromiseLike<void>);
+
 export interface Disposable {
-    dispose: (() => void) | (() => PromiseLike<void>);
+    dispose: Disposer;
 }
-
-
