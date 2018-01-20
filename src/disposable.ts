@@ -13,10 +13,6 @@ export function isDisposable(
 export class DisposableComposition implements Disposable {
     private disposables = new Set<Disposable>();
 
-    constructor(...disposables: Disposable[]) {
-        this.registerDisposable(...disposables);
-    }
-
     public async dispose() {
         const disposables = Array.from(this.disposables.values());
         await Promise.all(disposables.map(disposable => disposable.dispose()));
