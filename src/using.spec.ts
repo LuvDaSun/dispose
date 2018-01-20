@@ -11,20 +11,66 @@ class Context implements Disposable {
 }
 
 test("using", async t => {
-    const c = new Context();
-    await using(c, c => {
-        t.equal(c.disposed, false);
-    });
-    t.equal(c.disposed, true);
+    {
+        const c = new Context();
+        await using(c, c => {
+            t.equal(c.disposed, false);
+        });
+        t.equal(c.disposed, true);
+    }
+
+    {
+        const c = new Context();
+        await using([c], ([c]) => {
+            t.equal(c.disposed, false);
+        });
+        t.equal(c.disposed, true);
+    }
+
+    {
+        const c = new Context();
+        const c1 = new Context();
+        await using([c, c1], ([c, c1]) => {
+            t.equal(c.disposed, false);
+            t.equal(c1.disposed, false);
+        });
+        t.equal(c.disposed, true);
+        t.equal(c1.disposed, true);
+    }
 });
 
 test("using unusable", async t => {
-    const u = {} as any;
-    try {
-        await using(u, u => null);
-        t.fail();
+    {
+        const u = {} as any;
+        try {
+            await using(u, u => null);
+            t.fail();
+        }
+        catch (err) {
+            t.pass();
+        }
     }
-    catch (err) {
-        t.pass();
+
+    {
+        const u = {} as any;
+        try {
+            await using([u], ([u]) => null);
+            t.fail();
+        }
+        catch (err) {
+            t.pass();
+        }
+    }
+
+    {
+        const c = new Context();
+        const u = {} as any;
+        try {
+            await using([u, c], ([u, c]) => null);
+            t.fail();
+        }
+        catch (err) {
+            t.pass();
+        }
     }
 });
