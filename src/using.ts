@@ -1,16 +1,17 @@
-import {Disposable} from "./disposable";
+import { Disposable, isDisposable } from "./disposable";
+
+export type Usable<TDisposable> = TDisposable | PromiseLike<TDisposable>;
 
 export async function using<TResult, TDisposable extends Disposable>(
-    disposable: TDisposable | PromiseLike<TDisposable>,
+    usable: Usable<TDisposable>,
     job: (disposable: TDisposable) => TResult,
 ): Promise<TResult> {
-    const resolvedDisposable = await disposable;
+    const disposable = await usable;
+    if (!isDisposable(disposable)) throw new Error(`Not a disposable`);
     try {
-        return await job(resolvedDisposable);
+        return await job(disposable);
     }
     finally {
-        await resolvedDisposable.dispose();
+        await disposable.dispose();
     }
 }
-
-

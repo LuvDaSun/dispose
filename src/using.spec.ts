@@ -1,4 +1,4 @@
-import * as test from "tape";
+import * as test from "blue-tape";
 import { Disposable } from "./disposable";
 import { using } from "./using";
 
@@ -16,7 +16,15 @@ test("using", async t => {
         t.equal(c.disposed, false);
     });
     t.equal(c.disposed, true);
-
-    t.end();
 });
 
+test("using unusable", async t => {
+    const u = {} as any;
+    try {
+        await using(u, u => null);
+        t.fail();
+    }
+    catch (err) {
+        t.pass();
+    }
+});

@@ -7,6 +7,9 @@
     "rules": {
         "arrow-parens": false,
         "no-shadowed-variable": false,
+        "interface-name": false,
+        "one-line": false,
+        "curly": false
     },
     "rulesDirectory": []
 }
