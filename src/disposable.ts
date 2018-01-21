@@ -15,7 +15,10 @@ export class DisposableComposition implements Disposable {
 
     public async dispose() {
         const disposables = Array.from(this.disposables.values());
-        await Promise.all(disposables.map(disposable => disposable.dispose()));
+        await Promise.all(disposables.map(async disposable => {
+            await disposable.dispose();
+            this.deregisterDisposable(disposable);
+        }));
     }
 
     protected registerDisposable(...disposables: Disposable[]) {
