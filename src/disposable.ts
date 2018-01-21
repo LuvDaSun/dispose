@@ -14,11 +14,10 @@ export class DisposableComposition implements Disposable {
     private disposables = new Set<Disposable>();
 
     public async dispose() {
-        const disposables = Array.from(this.disposables.values());
-        await Promise.all(disposables.map(async disposable => {
+        const disposables = Array.from(this.disposables.values()).reverse();
+        for (const disposable of disposables) {
             await disposable.dispose();
-            this.deregisterDisposable(disposable);
-        }));
+        }
     }
 
     protected registerDisposable(...disposables: Disposable[]) {
