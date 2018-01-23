@@ -2,11 +2,13 @@
   "name": "using-disposable",
   "version": "1.7.2",
   "description": "",
-  "main": "bin/index.js",
-  "types": "bin/index.d.ts",
+  "main": "obj/index.bundle.js",
+  "browser": "obj/index.bundle.js",
+  "module": "obj/index.js",
+  "types": "obj/index.d.ts",
   "scripts": {
-    "test": "npm run lint & npm run spec-all",
-    "compile": "tsc",
+    "test": "npm run lint && npm run spec-all",
+    "compile": "tsc && rollup --sourcemap --output.format cjs --output.file ./obj/index.bundle.js ./obj/index.js",
     "lint": "tslint 'src/**.ts'",
     "spec": "tape --require 'ts-node/register'",
     "spec-all": "npm run spec 'src/**/*.spec.ts'",
@@ -24,7 +26,7 @@
   },
   "homepage": "https://github.com/LuvDaSun/using-disposable#readme",
   "dependencies": {
-    "tslib": "^1.7.1"
+    "tslib": "^1.9.0"
   },
   "devDependencies": {
     "@types/blue-tape": "^0.1.31",
@@ -33,6 +35,7 @@
     "@types/tape": "^4.2.31",
     "blue-tape": "^1.0.0",
     "nyc": "^11.4.1",
+    "rollup": "^0.54.1",
     "sinon": "^4.1.6",
     "tape": "^4.8.0",
     "ts-node": "^3.0.4",
