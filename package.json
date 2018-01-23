@@ -8,7 +8,7 @@
   "types": "obj/index.d.ts",
   "scripts": {
     "test": "npm run lint && npm run spec-all",
-    "compile": "tsc && rollup --sourcemap --output.format cjs --output.file ./obj/index.bundle.js ./obj/index.js",
+    "compile": "tsc --module es2015 && rollup --sourcemap --output.format cjs --output.file ./obj/index.bundle.js ./obj/index.js",
     "lint": "tslint 'src/**.ts'",
     "spec": "tape --require 'ts-node/register'",
     "spec-all": "npm run spec 'src/**/*.spec.ts'",
