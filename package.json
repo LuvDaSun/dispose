@@ -1,6 +1,6 @@
 {
   "name": "using-disposable",
-  "version": "1.7.6",
+  "version": "1.7.7",
   "description": "",
   "main": "./node/main.js",
   "module": "./module/main.js",
