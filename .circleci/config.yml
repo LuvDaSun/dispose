@@ -58,19 +58,19 @@ workflows:
           context: npm-authorized
           filters:
             tags:
-              only: /.*/
+              only: /.*?/
       - lint:
           requires:
             - prepare
           filters:
             tags:
-              only: /.*/
+              only: /.*?/
       - test:
           requires:
             - prepare
           filters:
             tags:
-              only: /.*/
+              only: /.*?/
       - publish:
           requires:
             - lint
@@ -78,6 +78,6 @@ workflows:
             - prepare
           filters:
             branches:
-              ignore: /.*/
+              ignore: /.*?/
             tags:
-              only: /.*/
+              only: /.*?/
