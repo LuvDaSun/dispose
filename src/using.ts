@@ -10,9 +10,12 @@ export async function using<TResult, TDisposable extends Disposable>(
     if (!isDisposable(disposable))
         throw new Error(`Not a disposable`);
     try {
-        return await job(disposable);
-    }
-    finally {
+        const result = await job(disposable);
         await disposable.dispose();
+        return result;
+    }
+    catch (err) {
+        await disposable.dispose(err);
+        throw err;
     }
 }

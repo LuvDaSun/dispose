@@ -1,4 +1,4 @@
-export type Disposer = (() => void) | (() => PromiseLike<void>);
+export type Disposer = (err?: any) => void | PromiseLike<void>;
 
 export interface Disposable {
     dispose: Disposer;
@@ -13,10 +13,10 @@ export function isDisposable(
 export class DisposableComposition implements Disposable {
     private disposables = new Set<Disposable>();
 
-    public async dispose() {
+    public async dispose(err?: any) {
         const disposables = Array.from(this.disposables.values()).reverse();
         for (const disposable of disposables) {
-            await disposable.dispose();
+            await disposable.dispose(err);
             this.deregisterDisposable(disposable);
         }
     }
