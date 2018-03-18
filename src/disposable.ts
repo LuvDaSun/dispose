@@ -17,6 +17,7 @@ export class DisposableComposition implements Disposable {
         const disposables = Array.from(this.disposables.values()).reverse();
         for (const disposable of disposables) {
             await disposable.dispose();
+            this.deregisterDisposable(disposable);
         }
     }
 
