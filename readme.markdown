@@ -1,6 +1,6 @@
-using-disposable
+dispose
 
-[![CircleCI](https://circleci.com/gh/LuvDaSun/using-disposable.svg?style=svg)](https://circleci.com/gh/LuvDaSun/using-disposable)
+[![CircleCI](https://circleci.com/gh/LuvDaSun/dispose.svg?style=svg)](https://circleci.com/gh/LuvDaSun/dispose)
 
 # what is this?
 A C# inspired helper function to allow for automatic disposing of objects.

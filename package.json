@@ -1,6 +1,6 @@
 {
-  "name": "using-disposable",
-  "version": "2.1.3",
+  "name": "dispose",
+  "version": "1.0.0",
   "description": "",
   "main": "./node/main.js",
   "module": "./module/main.js",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LuvDaSun/using-disposable.git"
+    "url": "git+https://github.com/LuvDaSun/dispose.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LuvDaSun/using-disposable/issues"
+    "url": "https://github.com/LuvDaSun/dispose/issues"
   },
-  "homepage": "https://github.com/LuvDaSun/using-disposable#readme",
+  "homepage": "https://github.com/LuvDaSun/dispose#readme",
   "devDependencies": {
     "@types/blue-tape": "^0.1.31",
     "@types/node": "^9.4.0",
