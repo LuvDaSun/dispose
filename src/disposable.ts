@@ -21,11 +21,11 @@ export class DisposableComposition implements Disposable {
         }
     }
 
-    protected registerDisposable(...disposables: Disposable[]) {
+    public registerDisposable(...disposables: Disposable[]) {
         for (const disposable of disposables)
             this.disposables.add(disposable);
     }
-    protected deregisterDisposable(...disposables: Disposable[]) {
+    public deregisterDisposable(...disposables: Disposable[]) {
         for (const disposable of disposables)
             this.disposables.delete(disposable);
     }
